@@ -8,6 +8,7 @@
     <link rel="icon" href="logo.jpeg" type="image/jpeg">
 </head>
 <body>
+    <div class="rain-glass" aria-hidden="true"></div>
     <header class="site-header">
         <img src="logo.jpeg" alt="Techie Thought logo" class="site-logo">
         <div>
@@ -336,8 +337,6 @@
  Samsung is adjusting pricing now, with confirmed discounts for S25 and S26 flagships during its AI Week sale, a short‑term market move tied to component cost pressures and inventory management that could influence launch strategies.
     </div>
     </div>
-</body>
-</html>
 <script>
 function toggleMore() {
   const hiddenContent = document.getElementById('hiddenContent');
@@ -351,4 +350,52 @@ function toggleMore() {
     btn.textContent = 'More ▼';
   }
 }
+
+function buildRainGlass() {
+  const layer = document.querySelector('.rain-glass');
+  if (!layer) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dropCount = Math.min(54, Math.max(28, Math.round(window.innerWidth / 24)));
+  const streakCount = Math.min(18, Math.max(8, Math.round(window.innerWidth / 74)));
+  const fragment = document.createDocumentFragment();
+
+  layer.replaceChildren();
+
+  for (let i = 0; i < dropCount; i += 1) {
+    const drop = document.createElement('span');
+    const size = 4 + Math.random() * 12;
+
+    drop.className = 'rain-drop';
+    drop.style.setProperty('--size', `${size.toFixed(1)}px`);
+    drop.style.setProperty('--x', `${(Math.random() * 100).toFixed(2)}vw`);
+    drop.style.setProperty('--y', `${(Math.random() * 100).toFixed(2)}vh`);
+    drop.style.setProperty('--tilt', `${(-18 + Math.random() * 36).toFixed(1)}deg`);
+    drop.style.setProperty('--opacity', `${(0.3 + Math.random() * 0.32).toFixed(2)}`);
+    drop.style.setProperty('--delay', `${(-Math.random() * 18).toFixed(2)}s`);
+    drop.style.setProperty('--duration', reducedMotion ? '0s' : `${(16 + Math.random() * 18).toFixed(2)}s`);
+    fragment.appendChild(drop);
+  }
+
+  for (let i = 0; i < streakCount; i += 1) {
+    const streak = document.createElement('span');
+
+    streak.className = 'rain-run';
+    streak.style.setProperty('--x', `${(Math.random() * 100).toFixed(2)}vw`);
+    streak.style.setProperty('--y', `${(-15 + Math.random() * 105).toFixed(2)}vh`);
+    streak.style.setProperty('--width', `${(1.5 + Math.random() * 3).toFixed(1)}px`);
+    streak.style.setProperty('--height', `${(80 + Math.random() * 190).toFixed(1)}px`);
+    streak.style.setProperty('--opacity', `${(0.22 + Math.random() * 0.28).toFixed(2)}`);
+    streak.style.setProperty('--delay', `${(-Math.random() * 22).toFixed(2)}s`);
+    streak.style.setProperty('--duration', reducedMotion ? '0s' : `${(18 + Math.random() * 20).toFixed(2)}s`);
+    fragment.appendChild(streak);
+  }
+
+  layer.appendChild(fragment);
+}
+
+document.addEventListener('DOMContentLoaded', buildRainGlass);
+window.addEventListener('resize', buildRainGlass);
 </script>
+</body>
+</html>

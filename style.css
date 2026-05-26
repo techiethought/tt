@@ -9,6 +9,150 @@ body{
     font-family: Arial, sans-serif;
 }
 
+.rain-glass {
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 28%, rgba(135, 207, 255, 0.07) 46%, transparent 68%, rgba(255, 255, 255, 0.05)),
+        radial-gradient(circle at 12% 15%, rgba(255, 255, 255, 0.1), transparent 18%),
+        radial-gradient(circle at 78% 8%, rgba(97, 214, 255, 0.08), transparent 22%);
+}
+
+.rain-glass::before,
+.rain-glass::after {
+    content: "";
+    position: absolute;
+    inset: -12vh -5vw;
+    pointer-events: none;
+}
+
+.rain-glass::before {
+    background:
+        radial-gradient(circle at 18px 22px, rgba(255, 255, 255, 0.74) 0 1px, rgba(255, 255, 255, 0.16) 1px 2px, transparent 3px),
+        radial-gradient(circle at 78px 92px, rgba(255, 255, 255, 0.48) 0 1px, transparent 3px),
+        radial-gradient(ellipse at 120px 56px, rgba(8, 20, 30, 0.14) 0 1px, transparent 3px);
+    background-size: 150px 170px, 220px 200px, 185px 240px;
+    opacity: 0.38;
+    animation: rainSpeckles 28s linear infinite;
+}
+
+.rain-glass::after {
+    background:
+        repeating-linear-gradient(
+            94deg,
+            transparent 0 48px,
+            rgba(255, 255, 255, 0.15) 49px,
+            rgba(255, 255, 255, 0.04) 52px,
+            transparent 55px 132px
+        );
+    filter: blur(0.4px);
+    opacity: 0.2;
+    animation: rainSheet 24s linear infinite;
+}
+
+.rain-drop,
+.rain-run {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    -webkit-backdrop-filter: blur(0.8px) saturate(1.15);
+    backdrop-filter: blur(0.8px) saturate(1.15);
+    will-change: transform, opacity;
+}
+
+.rain-drop {
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    aspect-ratio: 0.74;
+    border-radius: 58% 42% 62% 38% / 70% 62% 38% 30%;
+    opacity: var(--opacity);
+    background:
+        radial-gradient(circle at 32% 23%, rgba(255, 255, 255, 0.92) 0 13%, transparent 16%),
+        radial-gradient(circle at 72% 74%, rgba(4, 18, 30, 0.18) 0 24%, transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.07) 42%, rgba(3, 24, 40, 0.13));
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.72),
+        inset -2px -2px 5px rgba(2, 20, 32, 0.2),
+        0 0 2px rgba(0, 0, 0, 0.24),
+        0 0 7px rgba(255, 255, 255, 0.25);
+    animation: rainDropDrift var(--duration) linear infinite var(--delay);
+}
+
+.rain-run {
+    left: var(--x);
+    top: var(--y);
+    width: var(--width);
+    height: var(--height);
+    border-radius: 999px;
+    opacity: var(--opacity);
+    background:
+        radial-gradient(ellipse at 50% 3%, rgba(255, 255, 255, 0.86), transparent 42%),
+        linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.56) 10%, rgba(255, 255, 255, 0.14) 64%, transparent);
+    box-shadow:
+        inset 1px 0 2px rgba(255, 255, 255, 0.64),
+        inset -1px 0 3px rgba(0, 20, 36, 0.22),
+        0 0 3px rgba(0, 0, 0, 0.16);
+    animation: rainRunSlide var(--duration) ease-in infinite var(--delay);
+}
+
+@keyframes rainSpeckles {
+    from {
+        transform: translate3d(0, -8vh, 0);
+    }
+
+    to {
+        transform: translate3d(0, 8vh, 0);
+    }
+}
+
+@keyframes rainSheet {
+    from {
+        transform: translate3d(-2vw, -8vh, 0);
+    }
+
+    to {
+        transform: translate3d(2vw, 8vh, 0);
+    }
+}
+
+@keyframes rainDropDrift {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -18vh, 0) rotate(var(--tilt));
+    }
+
+    12%,
+    82% {
+        opacity: var(--opacity);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(10px, 116vh, 0) rotate(var(--tilt));
+    }
+}
+
+@keyframes rainRunSlide {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -35vh, 0);
+    }
+
+    10%,
+    86% {
+        opacity: var(--opacity);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(14px, 125vh, 0);
+    }
+}
+
 .site-header {
     position: relative;
     isolation: isolate;
@@ -192,7 +336,11 @@ body{
 @media (prefers-reduced-motion: reduce) {
     .site-header::before,
     .site-header::after,
-    .heading {
+    .heading,
+    .rain-glass::before,
+    .rain-glass::after,
+    .rain-drop,
+    .rain-run {
         animation: none;
     }
 }
@@ -206,7 +354,7 @@ body{
     clear: both;
 }
 
-body > div:not(#hiddenContent):not(.Email) {
+body > div:not(#hiddenContent):not(.Email):not(.rain-glass) {
     overflow: hidden;
     background-color: white;
     border: 4px solid rgb(16, 15, 15);
