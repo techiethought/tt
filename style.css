@@ -474,6 +474,55 @@ body > div img,
     line-height: 1.7;
 }
 
+.defence-card-area {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.defence-news-card {
+    display: block;
+    width: 378px; /* Keep fixed width for cards */
+    height: auto; /* Allow height to adjust based on content */
+    box-sizing: border-box;
+    overflow: visible; /* Allow content to overflow if needed, though not expected with auto height */
+    padding: 0; /* Remove padding from the card itself */
+    border: 2px solid #111;
+    border-radius: 6px;
+    background-color: yellow;
+    color: #111;
+    font-family: Arial, sans-serif;
+}
+
+.defence-news-card img {
+    width: 100%; /* Image takes full width of the card */
+    height: 120px; /* Fixed height for the image for consistency */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-top-left-radius: 6px; /* Match card's top-left border-radius */
+    border-top-right-radius: 6px; /* Match card's top-right border-radius */
+    margin-bottom: 10px; /* Space between the image and the text below */
+    display: block; /* Ensure image behaves as a block element */
+}
+
+.defence-news-card h2 {
+    margin: 0 0 10px; /* Keep existing bottom margin */
+    margin-top: 0; /* Remove default top margin from h2 */
+    color: #111;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 16px; /* Apply horizontal padding to the heading */
+}
+
+.defence-news-card p {
+    margin: 0;
+    color: #111;
+    font-size: 14px;
+    line-height: 1.45;
+    padding: 0 16px 16px; /* Apply horizontal and bottom padding to the paragraph */
+}
+
 hr {
     clear: both;
 }
