@@ -372,8 +372,9 @@ body{
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgb(206, 241, 8);
 }
-
+    
 @keyframes liquidCrystalFlow {
     from {
         transform: translate3d(-4%, -3%, 0) rotate(0deg) skewX(-5deg) scale(1);
