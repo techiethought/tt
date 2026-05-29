@@ -109,7 +109,7 @@ Adding to the mystery, Microsoft’s Windows team and Nvidia both shared posts r
     </div>
             <hr>
     <div class="more-button-container">
-        <button class="more-btn" onclick="toggleMore()">More ▼</button>
+        <button class="more-btn" onclick="toggleMore()">Load Older</button>
     </div>
     <div class="hidden-content" id="hiddenContent">
     <hr>
@@ -180,11 +180,6 @@ The company plans to test higher-tier AI subscriptions and business-focused Meta
 Scientists analyzed archived MAVEN data collected during a powerful solar storm that struck Mars in December 2023. The phenomenon occurs when charged particles from the Sun interact with magnetic barriers, compressing plasma into structures known as flux tubes. Researchers previously believed the effect required a strong global magnetic field, which Mars lost billions of years ago.
 The finding suggests similar space weather interactions may also occur on Venus and Saturn’s moon Titan, expanding scientists’ understanding of how solar wind shapes planetary atmospheres across the solar system.</p>
     </div>
-    <hr>
-    <div class="more-button-container">
-        <button class="more-btn" onclick="toggleMore()">More ▼</button>
-    </div>
-    <div class="hidden-content" id="hiddenContent">
     <hr>
         <div>
             <h1 class="t">Xiaomi 17T confirmed to arrive in India with a MediaTek Dimensity 8500 series chipset, as key specifications surface ahead of launch</h1>
@@ -550,10 +545,10 @@ function toggleMore() {
   
   if (hiddenContent.style.display === 'none' || hiddenContent.style.display === '') {
     hiddenContent.style.display = 'block';
-    btn.textContent = 'Less ▲';
+    btn.textContent = 'Hide Older';
   } else {
     hiddenContent.style.display = 'none';
-    btn.textContent = 'More ▼';
+    btn.textContent = 'Load Older';
   }
 }
 

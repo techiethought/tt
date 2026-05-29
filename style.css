@@ -366,9 +366,9 @@ body{
     color: #2d1b7f; /* A slightly darker shade for hover */
 }
 
-.article-box {
+#articles-container .article-box {
     background-color: #e8f5e9;
-    border: 3px solid #2e7d32;
+    border: 3px solid #06f312;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
