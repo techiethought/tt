@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fixed Data Alignment: Headlines now match their corresponding URLs.
     const defenceArticles = [
         {
+            url: "https://www.indiandefensenews.in/2026/05/taliban-signs-first-defence-pact-with.html",
+            headline: "Taliban signs first defence pact with Russia, raising concerns over regional security dynamics",
+            description: "The Taliban has signed its first defence pact with Russia, marking a significant development in the geopolitical landscape of the region. The agreement is expected to enhance military cooperation between the two parties, but it has also raised concerns among neighboring countries and international observers about the potential implications for regional security."
+        },
+        {
+            url: "https://www.indiandefensenews.in/2026/05/cisf-strengthens-counter-drone-and.html",
+            headline: "CISF strengthens counter-drone and surveillance capabilities with new equipment",
+            description: "The Central Industrial Security Force (CISF) has enhanced its counter-drone and surveillance capabilities by acquiring new equipment, including advanced radar systems and drone detection technologies."
+        },
+        {
             url: "https://www.indiandefensenews.in/2026/05/netrasemi-to-begin-mass-production-of.html",
             headline: "NetraSEMI to begin mass production of indigenous 3D imaging radar for Indian Army",
             description: "NetraSEMI is set to commence mass production of its indigenous 3D imaging radar, a significant development for the Indian Army's surveillance capabilities."
