@@ -374,6 +374,143 @@ body{
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgb(206, 241, 8);
 }
+
+.home-layout {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.consumer-brief,
+.defence-brief {
+    width: 200px;
+    height: 400px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    border: 4px solid rgb(16, 15, 15);
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgb(16, 15, 15) inset;
+    padding: 10px;
+}
+
+.consumer-brief-header,
+.defence-brief-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.consumer-brief-header h2,
+.defence-brief-header h2 {
+    margin: 0;
+    color: #1a0f56;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.consumer-brief-header a,
+.consumer-brief-article h3 a,
+.consumer-article-more,
+.defence-brief-header a,
+.defence-brief-article h3 a,
+.defence-article-more {
+    color: #1a0f56;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.consumer-brief-header a:hover,
+.consumer-brief-article h3 a:hover,
+.consumer-article-more:hover,
+.defence-brief-header a:hover,
+.defence-brief-article h3 a:hover,
+.defence-article-more:hover {
+    text-decoration: underline;
+}
+
+.consumer-brief-list,
+.defence-brief-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.consumer-brief-article,
+.defence-brief-article {
+    border-bottom: 1px solid rgba(26, 15, 86, 0.18);
+    padding: 8px 0;
+}
+
+.consumer-brief-article:first-child,
+.defence-brief-article:first-child {
+    padding-top: 0;
+}
+
+.consumer-brief-article:last-child,
+.defence-brief-article:last-child {
+    border-bottom: 0;
+}
+
+.consumer-brief-article h3,
+.defence-brief-article h3 {
+    margin: 0 0 5px;
+    color: #111;
+    font-size: 12px;
+    line-height: 1.28;
+}
+
+.consumer-brief-article p,
+.consumer-brief-status,
+.defence-brief-article p,
+.defence-brief-status {
+    margin: 0;
+    color: #222;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.consumer-show-more,
+.defence-show-more {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 32px;
+    background-color: #1a0f56;
+    color: #f7f7ff;
+    border: 2px solid #f7f7ff;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.consumer-show-more:hover,
+.defence-show-more:hover {
+    background-color: #2d1b7f;
+}
+
+@media (max-width: 520px) {
+    .home-layout {
+        flex-direction: column;
+    }
+
+    .consumer-brief,
+    .defence-brief {
+        width: min(100%, 200px);
+    }
+}
     
 @keyframes liquidCrystalFlow {
     from {
