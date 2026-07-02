@@ -44,8 +44,88 @@ jobs:
         with:
           path: _site
 
-      - name: Deploy to GitHub Pages
+      - name: Create Pages deployment
         id: deployment
-        uses: actions/deploy-pages@v5
-        with:
-          timeout: 2700000
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          api="${GITHUB_API_URL:-https://api.github.com}"
+          common_headers=(
+            -H "Authorization: Bearer ${GITHUB_TOKEN}"
+            -H "Accept: application/vnd.github+json"
+            -H "X-GitHub-Api-Version: 2022-11-28"
+          )
+
+          artifact_id="$(
+            curl -fsSL "${common_headers[@]}" \
+              "$api/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" |
+              jq -r '.artifacts[] | select(.name == "github-pages") | .id' |
+              head -n 1
+          )"
+
+          if [[ -z "$artifact_id" || "$artifact_id" == "null" ]]; then
+            echo "::error::Could not find the github-pages artifact."
+            exit 1
+          fi
+
+          oidc_token="$(
+            curl -fsSL \
+              -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL" |
+              jq -r '.value'
+          )"
+
+          payload="$(
+            jq -n \
+              --argjson artifact_id "$artifact_id" \
+              --arg pages_build_version "$GITHUB_SHA" \
+              --arg oidc_token "$oidc_token" \
+              '{artifact_id: $artifact_id, pages_build_version: $pages_build_version, oidc_token: $oidc_token}'
+          )"
+
+          response="$(
+            curl -fsSL -X POST "${common_headers[@]}" \
+              -d "$payload" \
+              "$api/repos/$GITHUB_REPOSITORY/pages/deployments"
+          )"
+
+          deployment_id="$(jq -r '.id // (.status_url | split("/")[-1]) // empty' <<< "$response")"
+          page_url="$(jq -r '.page_url // empty' <<< "$response")"
+
+          if [[ -z "$deployment_id" ]]; then
+            echo "::error::GitHub did not return a Pages deployment ID."
+            echo "$response"
+            exit 1
+          fi
+
+          if [[ -n "$page_url" ]]; then
+            echo "page_url=$page_url" >> "$GITHUB_OUTPUT"
+          fi
+
+          echo "Created Pages deployment $deployment_id"
+
+          for attempt in $(seq 1 160); do
+            sleep 15
+            status_payload="$(
+              curl -fsSL "${common_headers[@]}" \
+                "$api/repos/$GITHUB_REPOSITORY/pages/deployments/$deployment_id"
+            )"
+            status="$(jq -r '.status // empty' <<< "$status_payload")"
+            echo "Pages deployment status: $status"
+
+            case "$status" in
+              succeed)
+                echo "status=succeed" >> "$GITHUB_OUTPUT"
+                exit 0
+                ;;
+              deployment_failed|deployment_content_failed|deployment_cancelled|deployment_lost)
+                echo "::error::Pages deployment ended with status: $status"
+                exit 1
+                ;;
+            esac
+          done
+
+          echo "::notice::Pages deployment is still queued; leaving it active for GitHub Pages to finish."
