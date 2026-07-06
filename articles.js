@@ -1,5 +1,10 @@
 const defenceArticles = [
     {
+        url: "https://www.indiandefensenews.in/2026/07/isro-successfully-tests-solve-motor-for.html",
+        headline: "ISRO Successfully Tests Solve Motor For Gaganyaan Parachute Validation",
+        description: "ISRO has successfully completed the first ground test of the solid motor for its Sub-Orbital Launch Vehicle for Experiments (SOLVE), marking a crucial step in validating the parachute-based deceleration system for the Gaganyaan mission."
+    },
+    {
         url: "https://defence.in/threads/to-counter-chinas-stealth-ready-pl-16-why-indias-future-air-defence-relies-on-kill-webs-and-manned-unmanned-teaming.17949/",
         headline: "To counter China’s stealth-ready PL-16, why India’s future air defence relies on kill webs and manned-unmanned teaming",
         description: "To counter China’s stealth-ready PL-16, why India’s future air defence relies on kill webs and manned-unmanned teaming"
