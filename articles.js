@@ -1,5 +1,20 @@
 const defenceArticles = [
     {
+        url: "https://defence.in/threads/iaf-reveals-physical-evidence-of-314km-s-400-surface-to-air-missile-strike-against-pakistani-awacs-during-op-sindoor.18208/",
+        headline: "IAF Reveals Physical Evidence of 314km S-400 Surface-to-Air Missile Strike Against Pakistani AWACS During Op Sindoor",
+        description: "The Indian Air Force (IAF) has provided undeniable physical proof of a historic combat achievement, showcasing canister blowout debris from a record-breaking surface-to-air missile (SAM) interception."
+    },
+    {
+        url: "https://www.indiandefensenews.in/2026/07/india-revives-chabahar-rail-link-to.html",
+        headline: "India Revives Chabahar Rail Link To Boost Central Asian Trade Amid Easing Iran Sanctions",
+        description: "Unconfirmed reports suggest that India is accelerating plans to revive the 700‑km Chabahar–Zahedan rail corridor in Iran, aiming to strengthen trade access to Central Asia and Eurasia while capitalising on easing US sanctions on Tehran."
+    },
+    {
+        url: "https://bharatshakti.in/brahmos-astra-missiles-and-sabang-port-india-indonesia-deepen-strategic-push-in-indo-pacific/",
+        headline: "BrahMos, Astra Missiles and Sabang Port: India, Indonesia Deepen Strategic Push in Indo-Pacific",
+        description: "The agreements were signed following talks held between Prime Minister Narendra Modi and Indonesian President Prabowo Subianto in Jakarta"
+    },
+    {
         url: "https://www.indiandefensenews.in/2026/07/isro-successfully-tests-solve-motor-for.html",
         headline: "ISRO Successfully Tests Solve Motor For Gaganyaan Parachute Validation",
         description: "ISRO has successfully completed the first ground test of the solid motor for its Sub-Orbital Launch Vehicle for Experiments (SOLVE), marking a crucial step in validating the parachute-based deceleration system for the Gaganyaan mission."
