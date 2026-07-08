@@ -1,5 +1,10 @@
 const defenceArticles = [
     {
+        url: "https://defence.in/threads/how-europes-eur100b-fcas-collapse-allows-india-to-pursue-targeted-6th-gen-tech-partnerships-with-france-on-its-own-terms.18221/",
+        headline: "How Europe’s €100B FCAS Collapse Allows India to Pursue Targeted 6th-Gen Tech Partnerships With France on Its Own Terms",
+        description: "In June 2026, one of Europe's most ambitious joint military ventures, the Future Combat Air System (FCAS), officially fell apart. This collapse has opened up new avenues for India to pursue targeted partnerships with France in the realm of 6th-generation combat aircraft technology, allowing for more tailored and strategic collaborations."
+    },
+    {
         url: "https://defence.in/threads/iaf-reveals-physical-evidence-of-314km-s-400-surface-to-air-missile-strike-against-pakistani-awacs-during-op-sindoor.18208/",
         headline: "IAF Reveals Physical Evidence of 314km S-400 Surface-to-Air Missile Strike Against Pakistani AWACS During Op Sindoor",
         description: "The Indian Air Force (IAF) has provided undeniable physical proof of a historic combat achievement, showcasing canister blowout debris from a record-breaking surface-to-air missile (SAM) interception."
