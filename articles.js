@@ -1,5 +1,15 @@
 const defenceArticles = [
     {
+        url: "https://defence.in/threads/drdo-issues-rfp-for-m3-interceptor-canister-materials-as-project-kusha-air-defence-programme-shifts-to-fabrication-phase.18228/",
+        headline: "DRDO Issues RFP for M3 Interceptor Canister Materials as Project Kusha Air Defence Programme Shifts to Fabrication Phase",
+        description: "India’s monumental ₹21,700 crore long-range air defence initiative, Project Kusha, has achieved a critical new milestone."
+    },
+    {
+        url: "https://defence.in/threads/why-drdo-should-equip-astra-mk2-missile-with-advanced-passive-eo-ir-seeker-tech-to-counter-electronic-warfare-threats.18232/",
+        headline: "Why DRDO Should Equip Astra Mk2 Missile With Advanced Passive EO/IR Seeker Tech to Counter Electronic Warfare Threats",
+        description: "Defence analysts suggest that developing an Electro-Optical/Infrared (EO/IR) seeker for the upcoming Astra Mk2 could be a game-changer."
+    },
+    {
         url: "https://defence.in/threads/how-europes-eur100b-fcas-collapse-allows-india-to-pursue-targeted-6th-gen-tech-partnerships-with-france-on-its-own-terms.18221/",
         headline: "How Europe’s €100B FCAS Collapse Allows India to Pursue Targeted 6th-Gen Tech Partnerships With France on Its Own Terms",
         description: "In June 2026, one of Europe's most ambitious joint military ventures, the Future Combat Air System (FCAS), officially fell apart. This collapse has opened up new avenues for India to pursue targeted partnerships with France in the realm of 6th-generation combat aircraft technology, allowing for more tailored and strategic collaborations."
