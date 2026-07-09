@@ -278,9 +278,25 @@ function buildRainGlass() {
     layer.appendChild(fragment);
 }
 
+function buildTicker() {
+    const tickerMessage = document.getElementById("tickerMessage");
+    const tickerMessageDuplicate = document.getElementById("tickerMessageDuplicate");
+
+    if (!tickerMessage || !tickerMessageDuplicate) return;
+
+    // Load saved message or use default
+    const defaultMessage = "Welcome to Techie Thought! Breaking tech news, smart analysis, and future-ready insights delivered fast.";
+    const savedMessage = localStorage.getItem("ticker_message") || defaultMessage;
+
+    // Update display values
+    tickerMessage.textContent = savedMessage;
+    tickerMessageDuplicate.textContent = savedMessage;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     buildConsumerBrief();
     buildDefenceBrief();
     buildRainGlass();
+    buildTicker();
 });
 window.addEventListener("resize", buildRainGlass);
