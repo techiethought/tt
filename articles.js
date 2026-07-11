@@ -1,5 +1,10 @@
 const defenceArticles = [
     {
+        url: "https://www.indiandefensenews.in/2026/07/un-expresses-concern-over-civilian.html",
+        headline: "UN Expresses Concern Over Civilian Trauma After Pakistani Strikes Kill 36 In Afghanistan",
+        description: "The United Nations Office for the Coordination of Humanitarian Affairs has voiced concern over the impact of Pakistani military strikes inside Afghanistan. The organisation highlighted that the attacks have heightened fear and psychological trauma among children, according to reports carried by Tolo News."
+    },
+    {
         url: "https://defence.in/threads/drdo-issues-rfp-for-m3-interceptor-canister-materials-as-project-kusha-air-defence-programme-shifts-to-fabrication-phase.18228/",
         headline: "DRDO Issues RFP for M3 Interceptor Canister Materials as Project Kusha Air Defence Programme Shifts to Fabrication Phase",
         description: "India’s monumental ₹21,700 crore long-range air defence initiative, Project Kusha, has achieved a critical new milestone."
