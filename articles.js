@@ -1,5 +1,15 @@
 const defenceArticles = [
     {
+        url: "https://www.indiandefensenews.in/2026/07/even-in-testing-phase-brahmos-had.html",
+        headline: "Even In Testing Phase, BrahMos Had Precision To Go Through Pakistan PM’s Office Window: Ex-Army Chief JJ Singh",
+        description: "Former Army Chief General JJ Singh has recalled the extraordinary precision of the BrahMos missile even during its testing phase, emphasising that it had the capability to strike with such accuracy that it could have gone through the window of the Pakistan Prime Minister’s office, The Tribune reported."
+    },
+    {
+        url: "https://www.indiandefensenews.in/2026/07/astra-mk-2-to-spearhead-indias-landmark.html",
+        headline: "ASTRA MK-2 To Spearhead India’s Landmark Policy Shift As Missile Production Opens To Private Firms",
+        description: "India has initiated a historic defence manufacturing reform by opening missile production to private firms, with the DRDO-developed ASTRA MK-2 set to be the first program under this framework, various news agencies reported."
+    },
+    {
         url: "https://www.indiandefensenews.in/2026/07/un-expresses-concern-over-civilian.html",
         headline: "UN Expresses Concern Over Civilian Trauma After Pakistani Strikes Kill 36 In Afghanistan",
         description: "The United Nations Office for the Coordination of Humanitarian Affairs has voiced concern over the impact of Pakistani military strikes inside Afghanistan. The organisation highlighted that the attacks have heightened fear and psychological trauma among children, according to reports carried by Tolo News."
